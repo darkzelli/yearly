@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:yearly/pages/checklist.dart';
 import 'package:yearly/pages/board.dart';
-import 'package:yearly/pages/recap.dart';
+import 'package:yearly/pages/home.dart';
 import 'package:yearly/pages/settings.dart';
 
 void main() {
@@ -43,8 +43,9 @@ class _MainAppState extends State<MainApp> {
             currentPageIndex = page;
           });
         },
-        children: const [Recap(), Checklist(), Board(), Settings()],
+        children: const [Home(), Checklist(), Board(), Settings()],
       ),
+      extendBody: true,
       bottomNavigationBar: Padding(
           padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 30),
           child: Container(
@@ -67,7 +68,7 @@ class _MainAppState extends State<MainApp> {
                 IconButton(
                   onPressed: () => navButtonPressed(0),
                   icon: Icon(
-                    Icons.bar_chart,
+                    Icons.home,
                     color: (currentPageIndex == 0)
                         ? const Color.fromRGBO(0, 107, 255, 1)
                         : const Color.fromRGBO(174, 182, 173, 1),
@@ -97,7 +98,7 @@ class _MainAppState extends State<MainApp> {
                 IconButton(
                   onPressed: () => navButtonPressed(3),
                   icon: Icon(
-                    Icons.settings_rounded,
+                    Icons.person,
                     color: (currentPageIndex == 3)
                         ? const Color.fromRGBO(0, 107, 255, 1)
                         : const Color.fromRGBO(174, 182, 173, 1),
