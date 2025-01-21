@@ -3,6 +3,7 @@ import 'package:yearly/pages/checklist.dart';
 import 'package:yearly/pages/board.dart';
 import 'package:yearly/pages/home.dart';
 import 'package:yearly/pages/settings.dart';
+import 'dart:ui';
 
 void main() {
   runApp(const MainApp());
@@ -10,7 +11,6 @@ void main() {
 
 class MainApp extends StatefulWidget {
   const MainApp({super.key});
-
   @override
   State<MainApp> createState() => _MainAppState();
 }
@@ -19,6 +19,22 @@ class _MainAppState extends State<MainApp> {
   final PageController _pageController = PageController(
     initialPage: 0,
   );
+  String calculateTitle(page) {
+    switch (page) {
+      case 0:
+        return 'Home';
+      case 1:
+        return 'Yearly';
+      case 2:
+        return 'Vision Board';
+      case 3:
+        return 'Account';
+      default:
+        return 'Home';
+    }
+  }
+
+  String navTitle = 'Home';
 
   int currentPageIndex = 0;
 
@@ -42,9 +58,26 @@ class _MainAppState extends State<MainApp> {
           setState(() {
             currentPageIndex = page;
           });
+          navTitle = calculateTitle(page);
         },
         children: const [Home(), Checklist(), Board(), Settings()],
       ),
+      appBar: AppBar(
+          title: Text(navTitle,
+              style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.w600,
+                  letterSpacing: 1)),
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          leading: currentPageIndex == 1
+              ? IconButton(onPressed: () {}, icon: Icon(Icons.more_vert))
+              : Container(),
+          actions: [
+            currentPageIndex == 1
+                ? IconButton(onPressed: () {}, icon: Icon(Icons.add))
+                : Container(),
+          ]),
       extendBody: true,
       bottomNavigationBar: Padding(
           padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 30),

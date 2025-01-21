@@ -33,7 +33,7 @@ class _TaskState extends State<CheckTask> {
               });
             },
             child: Container(
-                height: 50,
+                height: 40,
                 width: screenWidth * 0.70,
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -65,8 +65,8 @@ class _TaskState extends State<CheckTask> {
           ),
           Spacer(),
           Container(
-              height: 50,
-              width: 50,
+              height: 40,
+              width: 40,
               decoration: BoxDecoration(
                 color: const Color.fromRGBO(0, 107, 255, 1),
                 borderRadius: BorderRadius.circular(50),

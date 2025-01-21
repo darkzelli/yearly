@@ -23,6 +23,7 @@ class TaskGroup extends StatelessWidget {
               textAlign: TextAlign.left,
               style: TextStyle(
                 color: Colors.black,
+                fontWeight: FontWeight.w700,
               )),
         ),
         ...tasks,
