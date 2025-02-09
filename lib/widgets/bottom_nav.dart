@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yearly/widgets/bottom_nav_account.dart';
 import 'package:yearly/widgets/bottom_nav_main.dart';
 
 class BottomNav extends StatelessWidget {
@@ -13,9 +14,13 @@ class BottomNav extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 30),
+      padding:
+          EdgeInsets.symmetric(vertical: 50, horizontal: screenWidth * .04),
       child: Row(children: [
         BottomNavMain(
+            currentPageIndex: currentPageIndex, pageController: pageController),
+        Spacer(),
+        BottomNavAccount(
             currentPageIndex: currentPageIndex, pageController: pageController)
       ]),
     );

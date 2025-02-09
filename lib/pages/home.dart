@@ -5,6 +5,8 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(child: Text('home'));
+    return  Center(
+      child: Image.asset('lib/assets/yearlylogoanimation.gif', width: 200, height: 200,),
+    );
   }
 }

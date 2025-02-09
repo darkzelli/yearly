@@ -3,11 +3,13 @@ import 'package:yearly/pages/checklist.dart';
 import 'package:yearly/pages/board.dart';
 import 'package:yearly/pages/home.dart';
 import 'package:yearly/pages/settings.dart';
-import 'dart:ui';
+import 'package:yearly/pages/circle.dart';
 
 import 'package:yearly/widgets/bottom_nav.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-void main() {
+void main() async{
+  await dotenv.load(fileName: '.env');
   runApp(const MainApp());
 }
 
@@ -30,7 +32,9 @@ class _MainAppState extends State<MainApp> {
       case 2:
         return 'Vision Board';
       case 3:
-        return 'Account';
+        return 'Settings';
+      case 4:
+        return 'Circle';
       default:
         return 'Home';
     }
@@ -58,7 +62,13 @@ class _MainAppState extends State<MainApp> {
                 });
                 navTitle = calculateTitle(page);
               },
-              children: const [Home(), Checklist(), Board(), Settings()],
+              children: const [
+                Home(),
+                Checklist(),
+                Board(),
+                Settings(),
+                Circle()
+              ],
             ),
             appBar: AppBar(
               title: GestureDetector(

@@ -38,7 +38,7 @@ class BottomNavMain extends StatelessWidget {
                 color: (currentPageIndex == 0)
                     ? const Color.fromRGBO(0, 107, 255, 1)
                     : const Color.fromRGBO(174, 182, 173, 1),
-                size: 30,
+                size: 32,
               ),
             ),
             IconButton(
@@ -48,7 +48,7 @@ class BottomNavMain extends StatelessWidget {
                 color: (currentPageIndex == 1)
                     ? const Color.fromRGBO(0, 107, 255, 1)
                     : const Color.fromRGBO(174, 182, 173, 1),
-                size: 30,
+                size: 32,
               ),
             ),
             IconButton(
@@ -58,17 +58,17 @@ class BottomNavMain extends StatelessWidget {
                 color: (currentPageIndex == 2)
                     ? const Color.fromRGBO(0, 107, 255, 1)
                     : const Color.fromRGBO(174, 182, 173, 1),
-                size: 30,
+                size: 32,
               ),
             ),
             IconButton(
               onPressed: () => pageController.jumpToPage(3),
               icon: Icon(
-                Icons.groups,
+                Icons.settings,
                 color: (currentPageIndex == 3)
                     ? const Color.fromRGBO(0, 107, 255, 1)
                     : const Color.fromRGBO(174, 182, 173, 1),
-                size: 30,
+                size: 32,
               ),
             ),
           ]),
