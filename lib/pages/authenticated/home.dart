@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yearly/widgets/year_selector.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -6,7 +7,6 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  Center(
-      child: Image.asset('lib/assets/yearlylogoanimation.gif', width: 200, height: 200,),
-    );
+      child: YearSelector());
   }
 }

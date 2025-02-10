@@ -20,11 +20,12 @@ class _MainAppState extends State<MainApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        theme:  ThemeData(
-              colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.white)
-            ),
-        home: Scaffold(
-            body: AuthGate())
-        );
+      debugShowCheckedModeBanner: false,
+      theme:  ThemeData(
+            colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.white)
+          ),
+      home: Scaffold(
+          body: AuthGate())
+      );
   }
 }
