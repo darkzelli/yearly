@@ -4,7 +4,7 @@ class BottomNavMain extends StatelessWidget {
   final PageController pageController;
   final int currentPageIndex;
   const BottomNavMain(
-      {Key? super.key,
+      {super.key,
       required this.pageController,
       required this.currentPageIndex});
 
@@ -12,7 +12,7 @@ class BottomNavMain extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     return Container(
-        height: 75,
+        height: 60,
         width: screenWidth * 0.70,
         decoration: BoxDecoration(
           color: Colors.white,
@@ -28,7 +28,7 @@ class BottomNavMain extends StatelessWidget {
         ),
         child: Padding(
           padding:
-              EdgeInsets.symmetric(vertical: 10, horizontal: screenWidth * .04),
+              EdgeInsets.symmetric(vertical: 0, horizontal: screenWidth * .04),
           child:
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
             IconButton(
@@ -44,7 +44,7 @@ class BottomNavMain extends StatelessWidget {
             IconButton(
               onPressed: () => pageController.jumpToPage(1),
               icon: Icon(
-                Icons.list,
+                Icons.event,
                 color: (currentPageIndex == 1)
                     ? const Color.fromRGBO(0, 107, 255, 1)
                     : const Color.fromRGBO(174, 182, 173, 1),
@@ -64,7 +64,7 @@ class BottomNavMain extends StatelessWidget {
             IconButton(
               onPressed: () => pageController.jumpToPage(3),
               icon: Icon(
-                Icons.settings,
+                Icons.person,
                 color: (currentPageIndex == 3)
                     ? const Color.fromRGBO(0, 107, 255, 1)
                     : const Color.fromRGBO(174, 182, 173, 1),

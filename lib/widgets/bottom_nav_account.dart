@@ -4,7 +4,7 @@ class BottomNavAccount extends StatelessWidget {
   final PageController pageController;
   final int currentPageIndex;
   const BottomNavAccount(
-      {Key? super.key,
+      {super.key,
       required this.pageController,
       required this.currentPageIndex});
 
@@ -13,8 +13,8 @@ class BottomNavAccount extends StatelessWidget {
     return GestureDetector(
       onTap: () => pageController.jumpToPage(4),
       child: Container(
-          height: 75,
-          width: 75,
+          height: 60,
+          width: 60,
           decoration: BoxDecoration(
             color: const Color.fromRGBO(0, 107, 255, 1),
             borderRadius: BorderRadius.circular(50),

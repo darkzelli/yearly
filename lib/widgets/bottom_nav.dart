@@ -6,7 +6,7 @@ class BottomNav extends StatelessWidget {
   final PageController pageController;
   final int currentPageIndex;
   const BottomNav(
-      {Key? super.key,
+      {super.key,
       required this.pageController,
       required this.currentPageIndex});
 
@@ -15,7 +15,7 @@ class BottomNav extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
     return Padding(
       padding:
-          EdgeInsets.symmetric(vertical: 50, horizontal: screenWidth * .04),
+          EdgeInsets.symmetric(vertical: 55, horizontal: screenWidth * .06),
       child: Row(children: [
         BottomNavMain(
             currentPageIndex: currentPageIndex, pageController: pageController),
