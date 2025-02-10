@@ -75,7 +75,7 @@ class _AuthenticatedControllerState extends State<AuthenticatedController> {
                           letterSpacing: 1)),
                 ]),
               ),
-              backgroundColor: Colors.transparent,
+              backgroundColor: const Color.fromARGB(0, 26, 5, 211),
               elevation: 0,
             ),
             extendBody: true,

@@ -12,7 +12,11 @@ class OnBoardScreening extends StatefulWidget {
 class _OnBoardScreeningState extends State<OnBoardScreening> {
 final PageController _pageController = PageController();
  int currentPageIndex = 0;
-
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
