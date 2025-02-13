@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:yearly/pages/authenticated/authenticated_controller.dart';
+import 'package:yearly/pages/unauthenticated/login.dart';
+import 'package:yearly/pages/unauthenticated/signup.dart';
 
 class OnBoardScreening extends StatefulWidget {
   const OnBoardScreening({super.key});
@@ -63,7 +65,7 @@ final PageController _pageController = PageController();
                   (currentPageIndex == 2) ?
                   Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => AuthenticatedController())
+                          MaterialPageRoute(builder: (context) => Signup())
                   ) :
                   _pageController.jumpToPage(currentPageIndex + 1);
                 },
