@@ -19,68 +19,68 @@ class NumberTask extends StatefulWidget {
 }
 
 class _TaskState extends State<NumberTask> {
-  bool isCompleted = true;
+  int current;
+
+  _TaskState() : current = 0;
+
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     return Padding(
-      padding:
-          EdgeInsets.symmetric(vertical: 10, horizontal: screenWidth * .08),
+      padding: EdgeInsets.symmetric(vertical: 10, horizontal: screenWidth * .06),
       child: Row(
-        mainAxisAlignment:
-            MainAxisAlignment.center, // Center the child horizontally
         children: [
-          GestureDetector(
-            onTap: () {
+          IconButton(
+            iconSize: 32,
+            icon: Icon(Icons.remove_circle_outline),
+            onPressed: () {
               setState(() {
-                isCompleted = !isCompleted;
+                current = current > 0 ? current - 1 : 0;
               });
             },
-            child: Container(
-                height: 40,
-                width: screenWidth * 0.70,
+          ),
+          Expanded(
+            child: SizedBox(
+              height: 50, // Set the desired height here
+              width: screenWidth * 0.7, // Set the desired width here
+              child: Container(
                 decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(50),
-                  boxShadow: const [
-                    BoxShadow(
-                      color: Color.fromRGBO(172, 159, 159, .3),
-                      spreadRadius: 5,
-                      blurRadius: 20,
-                      offset: Offset(0, -2), // Raised from bottom
+                  borderRadius: BorderRadius.circular(50.0),
+                  color: Colors.grey[200],
+                ),
+                padding: EdgeInsets.symmetric(vertical: 10, horizontal: screenWidth * .04), // Adjust padding to center content
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      widget.objective,
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                    Text(
+                      current.toString(),
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: current >= widget.goal ? Color.fromRGBO(46, 109, 198, 1): Colors.black, // Change the color conditionally
+                      ),
                     ),
                   ],
                 ),
-                child: Padding(
-                  padding: EdgeInsets.symmetric(
-                      vertical: 10, horizontal: screenWidth * .04),
-                  child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(widget.objective,
-                            overflow: TextOverflow.fade,
-                            style: TextStyle(fontWeight: FontWeight.w600)),
-                        Text(widget.current.toString())
-                      ]),
-                )),
-          ),
-          Spacer(),
-          Container(
-              height: 40,
-              width: 40,
-              decoration: BoxDecoration(
-                color: const Color.fromRGBO(0, 107, 255, 1),
-                borderRadius: BorderRadius.circular(50),
-                boxShadow: const [
-                  BoxShadow(
-                    color: Color.fromRGBO(172, 159, 159, .3),
-                    spreadRadius: 5,
-                    blurRadius: 20,
-                    offset: Offset(0, -2), // Raised from bottom
-                  ),
-                ],
               ),
-              child: Center(child: Text(widget.goal.toString())))
+            ),
+          ),
+          IconButton(
+            iconSize: 32,
+            icon: Icon(Icons.add_circle_outline),
+            onPressed: () {
+              setState(() {
+                current++;
+              });
+            },
+          ),
         ],
       ),
     );

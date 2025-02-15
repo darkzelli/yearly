@@ -19,7 +19,7 @@ class _ChecklistState extends State<Checklist> {
   }
   List tasksGroup = [
     TaskGroup(title: 'school', tasks: [
-      CheckTask(id: 1, objective: 'go to school'),
+      NumberTask(id: 1, objective: 'aaah', goal: 5),
       CheckTask(id: 1, objective: 'go to school'),
       CheckTask(id: 1, objective: 'go to school'),
       CheckTask(id: 1, objective: 'go to school'),
@@ -44,21 +44,42 @@ class _ChecklistState extends State<Checklist> {
            children: [
             YearSelector(),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: screenWidth * .04),
-              child: TextField(
-                decoration: InputDecoration(
-                  hintText: 'Search...',
-                  prefixIcon: Icon(Icons.search),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(50.0),
-                    borderSide: BorderSide.none,
+              padding: EdgeInsets.symmetric(vertical: 10, horizontal: screenWidth * .04),
+              child: Row(
+                children: [
+                  IconButton(
+                    icon: Icon(Icons.filter_list),
+                    onPressed: () {
+                      // Add your filter action here
+                    },
                   ),
-                  filled: true,
-                  fillColor: Colors.grey[200],
-                ),
-                
+                  Expanded(
+                    child: SizedBox(
+                      height: 50, // Set the desired height here
+                      width: screenWidth * 0.7, // Set the desired width here
+                      child: TextField(
+                        decoration: InputDecoration(
+                          hintText: 'Search...',
+                          prefixIcon: Icon(Icons.search),
+                          contentPadding: EdgeInsets.symmetric(vertical: 10), // Adjust vertical padding to center content
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(50.0),
+                            borderSide: BorderSide.none,
+                          ),
+                          filled: true,
+                          fillColor: Colors.grey[200],
+                        ),
+                      ),
+                    ),
+                  ),
+                  IconButton(
+                    icon: Icon(Icons.add),
+                    onPressed: () {
+                      // Add your filter action here
+                    },
+                  ),
+                ],
               ),
-              
             ),
             Container(height: 16, color: Colors.transparent,), // Add vertical space
             Expanded( // Allow ListView to take remaining space

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:yearly/auth/auth_service.dart';
-import 'package:yearly/pages/unauthenticated/login.dart';
 class Signup extends StatefulWidget {
   const Signup({super.key});
 
@@ -11,12 +10,14 @@ class Signup extends StatefulWidget {
 class _SignupState extends State<Signup> {
   final authService = AuthService();
 
+  final _displayNameController = TextEditingController();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _confirmPasswordController = TextEditingController();
 
 
   void signUp() async {
+    final displayName = _displayNameController.text;
     final email = _emailController.text;
     final password = _passwordController.text;
     final confirmPassword = _confirmPasswordController.text;
@@ -26,7 +27,7 @@ class _SignupState extends State<Signup> {
       return;
     }
     try {
-      authService.signUpWithEmailPassword(email, password);
+      authService.signUpWithEmailPassword(email, password, displayName);
 
       Navigator.pop(context);
     } catch (e) {
@@ -74,6 +75,19 @@ class _SignupState extends State<Signup> {
                   padding: const EdgeInsets.symmetric(vertical: 10),
                   child: Text("Get started creating your account by entering in your email and a password below.",
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700, color: Colors.grey[400]),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 25),
+                  child: TextField(
+                    controller: _displayNameController,
+                    decoration: const InputDecoration(
+                      labelText: "Display Name",
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                        borderSide: BorderSide(color: Colors.grey, width: 1.0)
+                      ),
+                    ),
                   ),
                 ),
                 Padding(
@@ -140,8 +154,8 @@ class _SignupState extends State<Signup> {
                     TextSpan(text: "Log In", style: TextStyle(color: Color.fromRGBO(44, 132, 255, 1), fontSize: 18, fontWeight: FontWeight.w700)),
                 ])),
                 )
-                
-                
+
+
               ],
             ),
           ),

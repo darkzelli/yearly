@@ -7,7 +7,7 @@ import 'package:yearly/widgets/number_task.dart';
 class TaskGroup extends StatelessWidget {
   final String title;
   final List tasks;
-  const TaskGroup({Key? super.key, required this.title, required this.tasks});
+  const TaskGroup({super.key, required this.title, required this.tasks});
 
   @override
   Widget build(BuildContext context) {

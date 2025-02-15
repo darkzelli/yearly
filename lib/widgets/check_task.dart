@@ -5,7 +5,7 @@ class CheckTask extends StatefulWidget {
   final String objective;
 
   const CheckTask({
-    Key? super.key,
+    super.key,
     required this.id,
     required this.objective,
   });
@@ -15,71 +15,56 @@ class CheckTask extends StatefulWidget {
 }
 
 class _TaskState extends State<CheckTask> {
-  bool isCompleted = true;
+  bool isCompleted = false;
+
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     return Padding(
-      padding:
-          EdgeInsets.symmetric(vertical: 10, horizontal: screenWidth * .08),
+      padding: EdgeInsets.symmetric(vertical: 10, horizontal: screenWidth * .06),
       child: Row(
-        mainAxisAlignment:
-            MainAxisAlignment.center, // Center the child horizontally
         children: [
-          GestureDetector(
-            onTap: () {
+          IconButton(
+            iconSize: 32,
+            icon: Icon(Icons.info_outline),
+            onPressed: () {
+              // Add your info action here
+            },
+          ),
+          Expanded(
+            child: SizedBox(
+              height: 50, // Set the desired height here
+              width: screenWidth * 0.7, // Set the desired width here
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(50.0),
+                  color: Colors.grey[200],
+                ),
+                padding: EdgeInsets.symmetric(vertical: 10, horizontal: screenWidth * .04), // Adjust padding to center content
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    widget.objective,
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          IconButton(
+            iconSize: 32,
+            icon: isCompleted
+                ? Icon(Icons.check_circle, color: Color.fromRGBO(44, 132, 255, 1))
+                : Icon(Icons.radio_button_unchecked),
+            onPressed: () {
               setState(() {
                 isCompleted = !isCompleted;
               });
             },
-            child: Container(
-                height: 40,
-                width: screenWidth * 0.70,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(50),
-                  boxShadow: const [
-                    BoxShadow(
-                      color: Color.fromRGBO(172, 159, 159, .3),
-                      spreadRadius: 5,
-                      blurRadius: 20,
-                      offset: Offset(0, -2), // Raised from bottom
-                    ),
-                  ],
-                ),
-                child: Padding(
-                  padding: EdgeInsets.symmetric(
-                      vertical: 10, horizontal: screenWidth * .04),
-                  child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(widget.objective,
-                            overflow: TextOverflow.fade,
-                            style: TextStyle(fontWeight: FontWeight.w600)),
-                        !isCompleted
-                            ? Icon(Icons.check_box_outline_blank,
-                                color: Colors.black)
-                            : Container()
-                      ]),
-                )),
           ),
-          Spacer(),
-          Container(
-              height: 40,
-              width: 40,
-              decoration: BoxDecoration(
-                color: const Color.fromRGBO(0, 107, 255, 1),
-                borderRadius: BorderRadius.circular(50),
-                boxShadow: const [
-                  BoxShadow(
-                    color: Color.fromRGBO(172, 159, 159, .3),
-                    spreadRadius: 5,
-                    blurRadius: 20,
-                    offset: Offset(0, -2), // Raised from bottom
-                  ),
-                ],
-              ),
-              child: Center(child: Icon(Icons.check, color: Colors.white)))
         ],
       ),
     );

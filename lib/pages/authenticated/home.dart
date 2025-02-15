@@ -20,7 +20,7 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    final currentEmail = authService.getCurrentEmail();
+    final currentEmail = authService.getCurrentUserEmail();
     return  Center(
       child: Column(
         children:[

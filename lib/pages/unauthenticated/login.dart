@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:yearly/auth/auth_service.dart';
-import 'package:yearly/pages/unauthenticated/signup.dart';
 class LogIn extends StatefulWidget {
   const LogIn({super.key});
 

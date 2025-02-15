@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:yearly/pages/authenticated/authenticated_controller.dart';
-import 'package:yearly/pages/unauthenticated/login.dart';
 import 'package:yearly/pages/unauthenticated/signup.dart';
 
 class OnBoardScreening extends StatefulWidget {
@@ -47,7 +45,7 @@ final PageController _pageController = PageController();
           Container(
             alignment: Alignment(0, 1),
             child: SmoothPageIndicator(
-              controller: _pageController, 
+              controller: _pageController,
               count: 3,
               effect: ExpandingDotsEffect(
                 spacing: 20.0,
@@ -57,7 +55,7 @@ final PageController _pageController = PageController();
               )
           ),
         ]),
-        bottomNavigationBar: 
+        bottomNavigationBar:
           Padding(
             padding: EdgeInsets.symmetric(vertical: 50, horizontal: screenWidth * .06),
             child: GestureDetector(
@@ -83,17 +81,17 @@ final PageController _pageController = PageController();
                         offset: Offset(0, -2), // Raised from bottom
                       ),
                     ],
-                  ), 
+                  ),
                   child: Center(
-                    child: (currentPageIndex == 2) ? 
-                        Text("Get Started", 
-                          style: TextStyle(color: Colors.white, 
-                          fontSize: 20, 
+                    child: (currentPageIndex == 2) ?
+                        Text("Get Started",
+                          style: TextStyle(color: Colors.white,
+                          fontSize: 20,
                         fontWeight: FontWeight.w600)
                         ) :
-                        Text("Next", 
-                           style: TextStyle(color: Colors.white, 
-                           fontSize: 20, 
+                        Text("Next",
+                           style: TextStyle(color: Colors.white,
+                           fontSize: 20,
                            fontWeight: FontWeight.w600)
                          )
                     ),
